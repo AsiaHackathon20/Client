@@ -1,0 +1,185 @@
+{
+    "sid": "A123456",
+    "name": "Niraj",
+    "role": "Desk Head",
+    "region": "APAC",
+    "jpmenterpriseaccount": "23242423",
+    "platform": "WeChat",
+    "team": [{
+        "sid": "B3242344",
+        "name": "Rita",
+        "role": "Sales",
+        "region": "APAC",
+        "jpmenterpriseaccount": "23242423",
+        "team": [],
+        "clientInteractions": [{
+            "clientIdentifier": "client1",
+            "clientName": "Client 1",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client2",
+            "clientName": "Client 2",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client3",
+            "clientName": "Client 3",
+            "platform": "WeChat",
+            "enterprizeAccount": "33434324",
+            "personalAccount": "23433234",
+            "region": "APAC",
+            "isAcceptable": false,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client6",
+            "clientName": "Client 6",
+            "platform": "WeChat",
+            "enterprizeAccount": "34324324",
+            "personalAccount": "2343233244",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        }
+        ]
+    },
+    {
+        "sid": "C32432234",
+        "name": "Ravi sharma",
+        "role": "Sales",
+        "region": "EUR",
+        "jpmenterpriseaccount": "23242423",
+        "team": [],
+        "clientInteractions": [{
+            "clientIdentifier": "client1",
+            "clientName": "Client 1",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "EUR",
+            "isAcceptable": true,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client9",
+            "clientName": "Client 9",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "NA",
+            "isAcceptable": true,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client3",
+            "clientName": "Client 3",
+            "platform": "WeChat",
+            "enterprizeAccount": "33434324",
+            "personalAccount": "23433234",
+            "region": "NA",
+            "isAcceptable": false,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client7",
+            "clientName": "Client 7",
+            "platform": "WeChat",
+            "enterprizeAccount": "34324324",
+            "personalAccount": "2343233244",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        }
+        ]
+    },
+    {
+        "sid": "D3432434",
+        "name": "Anupam",
+        "role": "Sales",
+        "region": "NA",
+        "jpmenterpriseaccount": "23242423",
+        "team": [],
+        "clientInteractions": [{
+            "clientIdentifier": "client1",
+            "clientName": "Client 1",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client2",
+            "clientName": "Client 2",
+            "platform": "WeChat",
+            "enterprizeAccount": "3434324",
+            "personalAccount": "2343234",
+            "region": "APAC",
+            "isAcceptable": false,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client3",
+            "clientName": "Client 3",
+            "platform": "WeChat",
+            "enterprizeAccount": "33434324",
+            "personalAccount": "23433234",
+            "region": "APAC",
+            "isAcceptable": false,
+            "timestamp": ""
+        },
+        {
+            "clientIdentifier": "client6",
+            "clientName": "Client 6",
+            "platform": "WeChat",
+            "enterprizeAccount": "34324324",
+            "personalAccount": "2343233244",
+            "region": "APAC",
+            "isAcceptable": true,
+            "timestamp": ""
+        }
+        ]
+    }],
+    "clientInteractions": [{
+        "clientIdentifier": "client1",
+        "clientName": "Client 1",
+        "platform": "WeChat",
+        "enterprizeAccount": "3434324",
+        "personalAccount": "2343234",
+        "region": "APAC",
+        "isAcceptable": true,
+        "timestamp": ""
+    },
+    {
+        "clientIdentifier": "client2",
+        "clientName": "Client 2",
+        "platform": "WeChat",
+        "enterprizeAccount": "3434324",
+        "personalAccount": "2343234",
+        "region": "APAC",
+        "isAcceptable": true,
+        "timestamp": ""
+    },
+    {
+        "clientIdentifier": "client3",
+        "clientName": "Client 3",
+        "platform": "WeChat",
+        "enterprizeAccount": "33434324",
+        "personalAccount": "23433234",
+        "region": "APAC",
+        "isAcceptable": false,
+        "timestamp": ""
+    }]
+}

@@ -19,7 +19,7 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import { Line, Bar, Pie } from "react-chartjs-2";
 
 // reactstrap components
 import {
@@ -49,6 +49,8 @@ import {
   chartExample3,
   chartExample4
 } from "variables/charts.js";
+import { policy_break_interactions_by_region } from "services/reports";
+import { policy_break_by_user } from "services/reports";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -72,8 +74,8 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <Row>
                     <Col className="text-left" sm="6">
-                      <h5 className="card-category">Total Shipments</h5>
-                      <CardTitle tag="h2">Performance</CardTitle>
+                      <h5 className="card-category">policy violations</h5>
+                      <CardTitle tag="h2">Policy Violations over the period</CardTitle>
                     </Col>
                     <Col sm="6">
                       <ButtonGroup
@@ -97,7 +99,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Accounts
+                            APAC
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-single-02" />
@@ -119,7 +121,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Purchases
+                            EUR
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-gift-2" />
@@ -141,7 +143,7 @@ class Dashboard extends React.Component {
                             type="radio"
                           />
                           <span className="d-none d-sm-block d-md-block d-lg-block d-xl-block">
-                            Sessions
+                            NA
                           </span>
                           <span className="d-block d-sm-none">
                             <i className="tim-icons icon-tap-02" />
@@ -166,17 +168,16 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Total Shipments</h5>
+                  <h5 className="card-category">Policy violations by Region</h5>
                   <CardTitle tag="h3">
-                    <i className="tim-icons icon-bell-55 text-info" />{" "}
-                    763,215
+                  
+                    { " "}
                   </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
-                    <Line
-                      data={chartExample2.data}
-                      options={chartExample2.options}
+                    <Pie
+                      data={policy_break_interactions_by_region}
                     />
                   </div>
                 </CardBody>
@@ -185,19 +186,14 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Daily Sales</h5>
-                  <CardTitle tag="h3">
-                    <i className="tim-icons icon-delivery-fast text-primary" />{" "}
-                    3,500€
-                  </CardTitle>
+                  <h5 className="card-category">Policy Violations by User count</h5>
+                
                 </CardHeader>
                 <CardBody>
-                  <div className="chart-area">
                     <Bar
-                      data={chartExample3.data}
-                      options={chartExample3.options}
+                      data={policy_break_by_user}
                     />
-                  </div>
+                  
                 </CardBody>
               </Card>
             </Col>
@@ -220,7 +216,7 @@ class Dashboard extends React.Component {
               </Card>
             </Col>
           </Row>
-          <Row>
+          {/* <Row>
             <Col lg="6" md="12">
               <Card className="card-tasks">
                 <CardHeader>
@@ -551,7 +547,7 @@ class Dashboard extends React.Component {
                 </CardBody>
               </Card>
             </Col>
-          </Row>
+          </Row> */}
         </div>
       </>
     );

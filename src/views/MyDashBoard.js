@@ -16,7 +16,6 @@
 
 */
 import React from "react";
-import data from "../data/userstats"
 
 // reactstrap components
 import {
@@ -28,6 +27,7 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { getClientInteractions } from "services/my-client-interactions";
 
 class Tables extends React.Component {
   constructor(props) {
@@ -38,22 +38,14 @@ class Tables extends React.Component {
   }
 
   componentDidMount() {
-    if (data && data.clientInteractions && data.clientInteractions.length > 0) {
-       const conversations =  data.clientInteractions.map(co => {
-         const { clientIdentifier, clientName, platform, region, isAcceptable } = co;
-          return {
-            id: clientIdentifier,
-            name: clientName,
-            platform,
-            region,
-            isAcceptable
-          }
-       }); 
+    
+       const conversations = getClientInteractions()
 
-       this.setState({
-        conversations
-       })
-    }
+       if (conversations) {
+         this.setState({
+          conversations
+         })
+       }
   }
 
   render() {

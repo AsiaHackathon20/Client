@@ -28,6 +28,8 @@ import {
   Row,
   Col
 } from "reactstrap";
+import { getTeam } from "services/my-client-interactions";
+import { getClientInteractions } from "services/my-client-interactions";
 
 class TeamDashBoard extends React.Component {
   constructor(props) {
@@ -41,20 +43,9 @@ class TeamDashBoard extends React.Component {
   }
 
   componentDidMount() {
-    if (data && data.team && data.team.length > 0) {
-       const conversations =  data.team.map(co => {
-         const  {sid, name, role, region, platform , clientInteractions  } = co;
-          return {
-           sid,
-           name,
-           role,
-           region,
-           platform,
-           conversationsLength:  clientInteractions.length,
-           unAcceptableConversations: clientInteractions.filter(con => con.isAcceptable).length
-          }
-       }); 
+    const conversations = getTeam();
 
+    if( conversations) {
        this.setState({
         conversations
        })
@@ -62,31 +53,19 @@ class TeamDashBoard extends React.Component {
   }
 
   onClick(e) {
-    if (data && data.team && data.team.length > 0) {
-      
-      const teamMember = data.team.find(member => member.sid === e);
-      if( teamMember && teamMember.clientInteractions && teamMember.clientInteractions.length > 0) {
-        
-        const teamMemberConversations = teamMember.clientInteractions.map(co => {
-          const { clientIdentifier, clientName, platform, region, isAcceptable } = co;
-           return {
-             id: clientIdentifier,
-             name: clientName,
-             platform,
-             region,
-             isAcceptable
-           };
-        });
-
-        this.setState({
-          teamMemberSelected: true,
-          teamMemberConversations
-        });
+    if (e) {
+        const teamMemberConversations = getClientInteractions(e);
+          
+        if (teamMemberConversations) {
+          this.setState({
+            teamMemberSelected: true,
+            teamMemberConversations
+          });
+        }
   
-      }
     }
-    
   }
+
   render() {
     return (
       <>

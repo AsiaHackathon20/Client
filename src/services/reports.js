@@ -57,8 +57,26 @@ export const policy_break_by_user = convas => {
             return member.clientInteractions.filter(ci => !ci.isAcceptable).length
     });
 
-    console.log(labels);
-    console.log([leadVilotions, ...teamViolations]);
+    return {
+        labels,
+        datasets: [{
+                data: [leadVilotions, ...teamViolations],
+                backgroundColor: colorArray,
+                hoverBackgroundColor: colorArray
+            }
+        ]
+    }
+}
+
+export const total_conversations_by_sid = convas => {
+
+    const labels = [ data.sid, ...data.team.map(t => t.sid)];
+    
+    var leadVilotions = data.clientInteractions.length;
+    var teamViolations  = data.team.map(member => {
+            return member.clientInteractions.length
+    });
+
     return {
         labels,
         datasets: [{

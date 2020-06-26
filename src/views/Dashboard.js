@@ -19,7 +19,7 @@ import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // react plugin used to create charts
-import { Line, Bar, Pie } from "react-chartjs-2";
+import { Line, Bar, Pie, Doughnut } from "react-chartjs-2";
 
 // reactstrap components
 import {
@@ -50,7 +50,7 @@ import {
   chartExample4
 } from "variables/charts.js";
 import { policy_break_interactions_by_region } from "services/reports";
-import { policy_break_by_user } from "services/reports";
+import { policy_break_by_user, total_conversations_by_sid } from "services/reports";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -200,16 +200,12 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Completed Tasks</h5>
-                  <CardTitle tag="h3">
-                    <i className="tim-icons icon-send text-success" /> 12,100K
-                  </CardTitle>
+                  <h5 className="card-category">Conversations per user</h5>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">
-                    <Line
-                      data={chartExample4.data}
-                      options={chartExample4.options}
+                  <Doughnut
+                      data={total_conversations_by_sid}
                     />
                   </div>
                 </CardBody>

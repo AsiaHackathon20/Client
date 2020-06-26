@@ -9,6 +9,8 @@ Client is React based App helps in realtime monitoring dashboard on external com
 npm install
 
 npm start
+
+http://localhost:3000/admin/dashboard
 ```
 
 ## License

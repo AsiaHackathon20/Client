@@ -30,6 +30,7 @@ import {
 } from "reactstrap";
 import { getTeam } from "services/my-client-interactions";
 import { getClientInteractions } from "services/my-client-interactions";
+import { connect } from "react-redux";
 
 class TeamDashBoard extends React.Component {
   constructor(props) {
@@ -153,4 +154,12 @@ class TeamDashBoard extends React.Component {
   }
 }
 
-export default TeamDashBoard;
+export const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+    
+  }
+}
+
+export default connect(mapStateToProps)(TeamDashBoard);

@@ -34,7 +34,7 @@ const store = createStore(loadSnapshot, initialState)
 const Root = ({ store }) => {
     useEffect(() =>{
       Axios.get('/api/getWeChatActivitySnapshot/').then(response => {
-         store.dispatch(response.data, {type: 'LOAD'});
+         store.dispatch({type: 'LOAD', data: response.data});
       });   
     });
     return (

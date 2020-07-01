@@ -169,10 +169,6 @@ class Dashboard extends React.Component {
               <Card className="card-chart">
                 <CardHeader>
                   <h5 className="card-category">Policy violations by Region</h5>
-                  <CardTitle tag="h3">
-                  
-                    { " "}
-                  </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">

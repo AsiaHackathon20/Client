@@ -120,7 +120,7 @@ class TeamDashBoard extends React.Component {
                             <td>{con.platform}</td>
                             <td>{con.region}</td>
                             <td>{con.totalContacts.length}</td>
-                            <td className="text-center">{con.totalUnacceptableContacts.length}</td>
+                            <td className="text-end">{con.totalUnacceptableContacts.length}</td>
                           </tr>
                         )
                         })

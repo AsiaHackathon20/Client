@@ -60,6 +60,7 @@ export const policy_break_by_user = convas => {
     return {
         labels,
         datasets: [{
+                label: 'Policy Violations',
                 data: [leadVilotions, ...teamViolations],
                 backgroundColor: colorArray,
                 hoverBackgroundColor: colorArray

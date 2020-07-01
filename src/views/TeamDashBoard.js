@@ -39,6 +39,7 @@ class TeamDashBoard extends React.Component {
        conversations: [],
        teamMemberSelected: false,
        teamMemberConversations: [],
+       selectedUser: '',
        serverState: null
     };
     this.onClick = this.onClick.bind(this);
@@ -53,14 +54,15 @@ class TeamDashBoard extends React.Component {
     }
   }
 
-  onClick(e) {
+  onClick(sid, name) {
     const { ASIA_RATES_SALES } = this.props.data;
-    if (e) {
-        const teamMemberContacts = getClientInteractions(e, ASIA_RATES_SALES);
+    if (sid) {
+        const teamMemberContacts = getClientInteractions(sid, ASIA_RATES_SALES);
           
         if (teamMemberContacts) {
           this.setState({
             teamMemberSelected: true,
+            selectedUser: `${name} ( ${sid} )`,
             teamMemberConversations: teamMemberContacts
           });
         }
@@ -105,7 +107,7 @@ class TeamDashBoard extends React.Component {
                         <th>Platform</th>
                         <th>Region</th>
                         <th>Total Contacts</th>
-                        <th>Unacceptable Contacts</th>
+                        <th>Policy Breaks</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -113,7 +115,7 @@ class TeamDashBoard extends React.Component {
                           users.map(con => {
                           return (
                             <tr>
-                            <td><a href="#" onClick={() => this.onClick(con.sid)}>{con.sid}</a> </td>
+                            <td><a href="#" onClick={() => this.onClick(con.sid, con.name)}>{con.sid}</a> </td>
                             <td>{con.name}</td>
                             <td>{con.platform}</td>
                             <td>{con.region}</td>
@@ -132,7 +134,7 @@ class TeamDashBoard extends React.Component {
             (<Col md="12">
               <Card >
                 <CardHeader>
-                  <CardTitle tag="h4">External interactons</CardTitle>
+                  <CardTitle tag="h4">{`External interactons for ${this.state.selectedUser}`}</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter" responsive>
@@ -142,7 +144,7 @@ class TeamDashBoard extends React.Component {
                         <th>Name</th>
                         <th>Platform</th>
                         <th>Region</th>
-                        <th className="text-center">Unaceptable Contacts</th>
+                        <th className="text-center">Policy Break</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -154,7 +156,7 @@ class TeamDashBoard extends React.Component {
                             <td>{con.name}</td>
                             <td>{con.platform}</td>
                             <td>{con.region}</td>
-                            <td className="text-center">{con.isAcceptable ? "Acceptable" : "Not Acceptable"}</td>
+                            <td className="text-center">{con.isAcceptable ? "NO" : "YES"}</td>
                           </tr>
                         )
                         })

@@ -38,14 +38,14 @@ class TeamDashBoard extends React.Component {
     this.state = {
        conversations: [],
        teamMemberSelected: false,
-       teamMemberConversations: []
+       teamMemberConversations: [],
+       serverState: null
     };
     this.onClick = this.onClick.bind(this);
   }
 
   componentDidMount() {
     const conversations = getTeam();
-
     if( conversations) {
        this.setState({
         conversations
@@ -54,13 +54,14 @@ class TeamDashBoard extends React.Component {
   }
 
   onClick(e) {
+    const { ASIA_RATES_SALES } = this.props.data;
     if (e) {
-        const teamMemberConversations = getClientInteractions(e);
+        const teamMemberContacts = getClientInteractions(e, ASIA_RATES_SALES);
           
-        if (teamMemberConversations) {
+        if (teamMemberContacts) {
           this.setState({
             teamMemberSelected: true,
-            teamMemberConversations
+            teamMemberConversations: teamMemberContacts
           });
         }
   
@@ -68,6 +69,24 @@ class TeamDashBoard extends React.Component {
   }
 
   render() {
+    const { ASIA_RATES_SALES } = this.props.data;
+    if(!ASIA_RATES_SALES) {
+       return null; 
+    }
+    const users = [];
+    
+    Object.keys(ASIA_RATES_SALES).forEach(key => {
+        users.push({
+            sid: ASIA_RATES_SALES[key].userDetails.id,
+            name: ASIA_RATES_SALES[key].userDetails.name,
+            platform: 'WeChat', // hardcoded for now as server does not return it
+            region: 'APAC', // hardcoded for now as server does not return it
+            totalContacts: ASIA_RATES_SALES[key].totalNumberOfContacts,
+            totalUnacceptableContacts: ASIA_RATES_SALES[key].totalUnacceptableContacts
+        });
+    });
+    console.log(users);
+    
     return (
       <>
         <div className="content">
@@ -85,21 +104,21 @@ class TeamDashBoard extends React.Component {
                         <th>Name</th>
                         <th>Platform</th>
                         <th>Region</th>
-                        <th>Total Conversations</th>
-                        <th>Unacceptable Conversations</th>
+                        <th>Total Contacts</th>
+                        <th>Unacceptable Contacts</th>
                       </tr>
                     </thead>
                     <tbody>
                       {
-                        this.state.conversations.map(con => {
+                          users.map(con => {
                           return (
                             <tr>
                             <td><a href="#" onClick={() => this.onClick(con.sid)}>{con.sid}</a> </td>
                             <td>{con.name}</td>
                             <td>{con.platform}</td>
                             <td>{con.region}</td>
-                            <td>{con.conversationsLength}</td>
-                            <td className="text-center">{con.unAcceptableConversations}</td>
+                            <td>{con.totalContacts.length}</td>
+                            <td className="text-center">{con.totalUnacceptableContacts.length}</td>
                           </tr>
                         )
                         })
@@ -123,7 +142,7 @@ class TeamDashBoard extends React.Component {
                         <th>Name</th>
                         <th>Platform</th>
                         <th>Region</th>
-                        <th className="text-center">Un Aceptable Conversations</th>
+                        <th className="text-center">Unaceptable Contacts</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -155,10 +174,9 @@ class TeamDashBoard extends React.Component {
 }
 
 export const mapStateToProps = (state) => {
-  console.log(state);
+    console.log(state)
   return {
-
-    
+    data: state
   }
 }
 

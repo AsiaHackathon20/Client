@@ -2,18 +2,22 @@ import data from "../data/userstats";
 import api from "./core";
 import Axios from "axios";
 
-export const getClientInteractions = (id) => {
-
-    const dataObject = id ? data.team.find(member => member.sid === id) : data;
-    if (dataObject && dataObject.clientInteractions && dataObject.clientInteractions.length > 0) {
-        return dataObject.clientInteractions.map(co => {
-          const { clientIdentifier, clientName, platform, region, isAcceptable } = co;
+export const getClientInteractions = (id, source) => {
+    const keys = Object.keys(source);
+    const key = keys.find(key => key.includes(id));
+   
+    const dataObject = source[key];
+    const unacceptableContactsIds = dataObject.totalUnacceptableContacts.map(con => con.sid);
+    console.log(unacceptableContactsIds);
+    if (dataObject && dataObject.totalNumberOfContacts && dataObject.totalNumberOfContacts.length > 0) {
+        return dataObject.totalNumberOfContacts.map(co => {
+          const { sid, name } = co;
            return {
-             id: clientIdentifier,
-             name: clientName,
-             platform,
-             region,
-             isAcceptable
+             id: sid,
+             name,
+             platform: 'WeChat', // hardcoded for now
+             region: 'APAC', // hardcoded for now
+             isAcceptable: unacceptableContactsIds.indexOf(sid) === -1
            }
         }); 
     } 

@@ -2,6 +2,24 @@ import data from "../data/userstats";
 import api from "./core";
 import Axios from "axios";
 
+
+export const getMyClientInteractions = (id) => {
+
+    const dataObject = id ? data.team.find(member => member.sid === id) : data;
+    if (dataObject && dataObject.clientInteractions && dataObject.clientInteractions.length > 0) {
+        return dataObject.clientInteractions.map(co => {
+          const { clientIdentifier, clientName, platform, region, isAcceptable } = co;
+          return {
+            id: clientIdentifier,
+            name: clientName,
+            platform,
+            region,
+            isAcceptable
+          }
+       }); 
+   }
+};
+
 export const getClientInteractions = (id, source) => {
     const keys = Object.keys(source);
     const key = keys.find(key => key.includes(id));

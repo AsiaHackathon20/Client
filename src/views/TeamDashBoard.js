@@ -99,7 +99,7 @@ class TeamDashBoard extends React.Component {
                   <CardTitle tag="h4">Team Details</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Table className="tablesorter" responsive>
+                  <Table className="tablesorter">
                     <thead className="text-primary">
                       <tr>
                         <th>sid</th>
@@ -137,7 +137,7 @@ class TeamDashBoard extends React.Component {
                   <CardTitle tag="h4">{`External interactons for ${this.state.selectedUser}`}</CardTitle>
                 </CardHeader>
                 <CardBody>
-                  <Table className="tablesorter" responsive>
+                  <Table className="tablesorter">
                     <thead className="text-primary">
                       <tr>
                         <th>Client Id</th>

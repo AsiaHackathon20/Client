@@ -27,7 +27,7 @@ import {
   Row,
   Col
 } from "reactstrap";
-import { getClientInteractions } from "services/my-client-interactions";
+import { getMyClientInteractions } from "services/my-client-interactions";
 
 class Tables extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class Tables extends React.Component {
 
   componentDidMount() {
     
-       const conversations = getClientInteractions()
+       const conversations = getMyClientInteractions()
 
        if (conversations) {
          this.setState({

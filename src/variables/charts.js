@@ -92,11 +92,6 @@ let chartExample1 = {
         "MAY",
         "JUN",
         "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC"
       ],
       datasets: [
         {
@@ -137,11 +132,6 @@ let chartExample1 = {
         "MAY",
         "JUN",
         "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC"
       ],
       datasets: [
         {
@@ -182,11 +172,6 @@ let chartExample1 = {
         "MAY",
         "JUN",
         "JUL",
-        "AUG",
-        "SEP",
-        "OCT",
-        "NOV",
-        "DEC"
       ],
       datasets: [
         {

@@ -96,7 +96,7 @@ class TeamDashBoard extends React.Component {
           <Col md="12">
               <Card >
                 <CardHeader>
-                  <CardTitle tag="h4">Team Details</CardTitle>
+                  <CardTitle tag="h4">{`Team Members - ASIA_RATES_SALES`}</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter">
@@ -134,7 +134,7 @@ class TeamDashBoard extends React.Component {
             (<Col md="12">
               <Card >
                 <CardHeader>
-                  <CardTitle tag="h4">{`External interactons for ${this.state.selectedUser}`}</CardTitle>
+                  <CardTitle tag="h4">{`External clients for ${this.state.selectedUser}`}</CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter">

@@ -121,9 +121,10 @@ class ComplianceDashboard extends React.Component {
 
   onUserSelect(sid) {
     if (sid) {
-      console.error('this.props.data[this.groupName]', this.props.data[this.state.groupName]);
         const teamMemberContacts = getClientInteractions(sid, this.props.data[this.state.groupName]);
-          
+        const keys = Object.keys(this.props.data[this.state.groupName]);
+        const key = keys.find(key => key.includes(sid));
+        const name = this.props.data[this.state.groupName][key].userDetails.name;
         if (teamMemberContacts) {
           this.setState({
             teamMemberSelected: true,
@@ -144,7 +145,7 @@ class ComplianceDashboard extends React.Component {
             <Col md="12">
               <Card>
                 <CardHeader>
-                  <CardTitle tag="h4">List of my client interactons</CardTitle>
+                  <CardTitle tag="h4">Chat groups </CardTitle>
                 </CardHeader>
                 <CardBody>
                   <Table className="tablesorter" responsive>
@@ -181,7 +182,7 @@ class ComplianceDashboard extends React.Component {
               <Col md="12">
                 <Card >
                   <CardHeader>
-                    <CardTitle tag="h4">Team Details</CardTitle>
+            <CardTitle tag="h4">{`Chat members - ${this.state.groupName}`}</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter">
@@ -220,7 +221,7 @@ class ComplianceDashboard extends React.Component {
               (<Col md="12">
                 <Card >
                   <CardHeader>
-                    <CardTitle tag="h4">{`External interactons for ${this.state.selectedUser}`}</CardTitle>
+                    <CardTitle tag="h4">{`External clients for ${this.state.selectedUser}`}</CardTitle>
                   </CardHeader>
                   <CardBody>
                     <Table className="tablesorter">

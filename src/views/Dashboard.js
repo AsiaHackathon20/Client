@@ -77,7 +77,7 @@ class Dashboard extends React.Component {
                   <Row>
                     <Col className="text-left" sm="6">
                       <h5 className="card-category">policy violations</h5>
-                      <CardTitle tag="h2">Policy Violations over the period</CardTitle>
+                      <CardTitle tag="h2">Policy Violations (Year to Date)</CardTitle>
                     </Col>
                     <Col sm="6">
                       <ButtonGroup
@@ -184,7 +184,7 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Policy Violations by User count</h5>
+                  <h5 className="card-category">Policy Violations per User</h5>
                 
                 </CardHeader>
                 <CardBody>
@@ -198,7 +198,7 @@ class Dashboard extends React.Component {
             <Col lg="4">
               <Card className="card-chart">
                 <CardHeader>
-                  <h5 className="card-category">Conversations per user</h5>
+                  <h5 className="card-category">Total conversations per user</h5>
                 </CardHeader>
                 <CardBody>
                   <div className="chart-area">

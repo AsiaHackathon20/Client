@@ -51,6 +51,8 @@ import {
 } from "variables/charts.js";
 import { policy_break_interactions_by_region } from "services/reports";
 import { policy_break_by_user, total_conversations_by_sid } from "services/reports";
+import { connect } from "react-redux";
+import { mapStateToProps } from "./TeamDashBoard";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -187,7 +189,7 @@ class Dashboard extends React.Component {
                 </CardHeader>
                 <CardBody>
                     <Bar
-                      data={policy_break_by_user}
+                      data={policy_break_by_user(this.props.data)}
                     />
                   
                 </CardBody>
@@ -546,4 +548,4 @@ class Dashboard extends React.Component {
   }
 }
 
-export default Dashboard;
+export default connect(mapStateToProps)(Dashboard);

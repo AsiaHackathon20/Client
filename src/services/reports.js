@@ -48,20 +48,23 @@ export const policy_break_interactions_by_region = convas => {
     }
 }
 
-export const policy_break_by_user = convas => {
+export const policy_break_by_user = data => {
 
-    const labels = [ data.sid, ...data.team.map(t => t.sid)];
+    const { ASIA_CREDIT_SALES } = data;
+
+    console.error('ASIA_CREDIT_SALES', ASIA_CREDIT_SALES);
+    const labels = Object.keys(ASIA_CREDIT_SALES).map(t => ASIA_CREDIT_SALES[t].userDetails.id);
     
-    var leadVilotions = data.clientInteractions.filter(ci => !ci.isAcceptable).length;
-    var teamViolations  = data.team.map(member => {
-            return member.clientInteractions.filter(ci => !ci.isAcceptable).length
+   
+    var teamViolations  = Object.keys(ASIA_CREDIT_SALES).map(key => {
+            return ASIA_CREDIT_SALES[key].totalUnacceptableContacts.length
     });
 
     return {
         labels,
         datasets: [{
                 label: 'Policy Violations',
-                data: [leadVilotions, ...teamViolations],
+                data: [...teamViolations],
                 backgroundColor: colorArray,
                 hoverBackgroundColor: colorArray
             }

@@ -49,6 +49,29 @@ class ComplianceDashboard extends React.Component {
     this.onUserSelect = this.onUserSelect.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.data) {
+       const chatGroups = Object.keys(this.props.data).map(key => {
+         const groupContacts = Object.keys(this.props.data[key]).map(userKey => {
+          this.props.data[key][userKey].totalUnacceptableContacts.map(contact => contact.smpIdentifier)
+        })
+  
+        const unAcceptableContacts = [].concat.apply([], groupContacts);
+
+         return {
+           name: key,
+           region: 'APAC',
+           platform: 'weChat',
+           unAcceptableContacts: unAcceptableContacts.length
+         }
+       });
+
+      this.setState({
+        chatGroups: chatGroups
+      })
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (this.props.data && prevProps.data !== this.props.data ) {
        const chatGroups = Object.keys(this.props.data).map(key => {

@@ -155,29 +155,15 @@ class AdminNavbar extends React.Component {
                   <DropdownMenu className="dropdown-navbar" right tag="ul">
                     <NavLink tag="li">
                       <DropdownItem className="nav-item">
-                        Mike John responded to your email
+                        Andrew Flynn is added to 'ASIA_CREDIT_SALES'
                       </DropdownItem>
                     </NavLink>
                     <NavLink tag="li">
                       <DropdownItem className="nav-item">
-                        You have 5 more tasks
+                        External contact 'Big Apple2' joined 'ASIA_CREDIT_SALES' chat group.
                       </DropdownItem>
                     </NavLink>
-                    <NavLink tag="li">
-                      <DropdownItem className="nav-item">
-                        Your friend Michael is in town
-                      </DropdownItem>
-                    </NavLink>
-                    <NavLink tag="li">
-                      <DropdownItem className="nav-item">
-                        Another notification
-                      </DropdownItem>
-                    </NavLink>
-                    <NavLink tag="li">
-                      <DropdownItem className="nav-item">
-                        Another one
-                      </DropdownItem>
-                    </NavLink>
+                   
                   </DropdownMenu>
                 </UncontrolledDropdown>
                 <UncontrolledDropdown nav>

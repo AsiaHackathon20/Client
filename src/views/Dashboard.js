@@ -76,7 +76,7 @@ class Dashboard extends React.Component {
                 <CardHeader>
                   <Row>
                     <Col className="text-left" sm="6">
-                      <h5 className="card-category">policy violations</h5>
+                      <h5 className="card-category">ASIA_RATES_SALES </h5>
                       <CardTitle tag="h2">Policy Violations (Year to Date)</CardTitle>
                     </Col>
                     <Col sm="6">

@@ -74,7 +74,7 @@ export const policy_break_by_user = data => {
 
 export const total_conversations_by_sid = convas => {
 
-    const labels = [ data.sid, ...data.team.map(t => t.sid)];
+    const labels = [ 'R316615', 'F664451', 'F241770', 'W520587'];
     
     var leadVilotions = data.clientInteractions.length;
     var teamViolations  = data.team.map(member => {

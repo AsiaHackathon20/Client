@@ -25,19 +25,19 @@ import UserProfile from "views/UserProfile.js";
 
 var routes = [
   {
-    path: "/dashboard",
-    name: "Compliance Dashboard",
-    rtlName: "لوحة القيادة",
-    icon: "tim-icons icon-chart-pie-36",
-    component: Tables2,
-    layout: "/admin"
-  },
-  {
     path: "/team-dashboard",
     name: "Team Dashboard",
     rtlName: "لوحة القيادة",
     icon: "tim-icons icon-chart-pie-36",
     component: TeamDashBoard,
+    layout: "/admin"
+  },
+  {
+    path: "/dashboard",
+    name: "Compliance Dashboard",
+    rtlName: "لوحة القيادة",
+    icon: "tim-icons icon-chart-pie-36",
+    component: Tables2,
     layout: "/admin"
   },
   {

@@ -61,7 +61,7 @@ class ComplianceDashboard extends React.Component {
          return {
            name: key,
            region: 'APAC',
-           platform: 'weChat',
+           platform: 'WeChat',
            unAcceptableContacts: unAcceptableContacts.length
          }
        });
@@ -154,7 +154,7 @@ class ComplianceDashboard extends React.Component {
                         <th>Group Name</th>
                         <th>Platform</th>
                         <th>Region</th>
-                        <th className="text-center">Unacceptable Contacts</th>
+                        <th className="text-center">Policy breaks</th>
                       </tr>
                     </thead>
                     <tbody>
